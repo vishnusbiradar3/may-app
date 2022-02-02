@@ -3,8 +3,8 @@ import { shallow } from 'enzyme';
 import { findByTestAttr, checkProp } from '../../tesrUtilis';
 import Input from '../../../componets/jotto/Input';
 
-const setUp = () => {
-    return (shallow(<Input />));
+const setUp = ( secrectWord ='party') => {
+    return (shallow(<Input secrectWord={secrectWord} />));
 }
 
 
@@ -14,3 +14,7 @@ test('render without error', () => {
     expect(component.length).toBe(1);
 
 });
+
+test('does not throw warning with expected props', () => {
+    checkProp(Input, {secrectWord :'party'});
+})
