@@ -10,16 +10,16 @@ export default function GuessedWord(props) {
     } else {
         const guessedWordsRow = props.gussedWords.map((word, index) => (
 
-            <tr data-test="gussed-word" key={index}> 
-            <td>{word.gussedWord}</td>
+            <tr data-test="gussed-word" key={index}>
+                <td>{word.gussedWord}</td>
                 <td>{word.lettrMatchCount}</td>
-                </tr>
+            </tr>
         ));
         contents = (
-            <div data-test="gussed-words">
+            <div data-test="gussed-words" className="table-responsiv">
                 <h3>Gussed Words </h3>
-                <table>
-                    <thead>
+                <table className="table table-bordered">
+                    <thead className="thead-light">
                         <tr><th>Guess</th><th>Matching Letter</th></tr>
                     </thead>
                     <tbody>
