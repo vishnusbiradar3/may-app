@@ -16,7 +16,9 @@ export default function Input({ secrectWord }) {
             />
             <button
                 data-test="submit-button"
+                onClick={() => setCurrentGuess("")}
                 className='btn btn-primary mb-2'
+                onClick={(event)=>{event.preventDefault();setCurrentGuess("")}}
             >Submit</button>
         </form>
 
