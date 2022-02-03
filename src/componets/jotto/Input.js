@@ -30,5 +30,5 @@ export default function Input({ success, secrectWord }) {
 }
 
 Input.propTypes = {
-    secrectWord: PropTypes.string.isRequired
+    secretWord: PropTypes.string.isRequired
 }

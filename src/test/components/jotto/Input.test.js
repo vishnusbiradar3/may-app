@@ -3,8 +3,8 @@ import { shallow } from 'enzyme';
 import { findByTestAttr, checkProp } from '../../tesrUtilis';
 import Input from '../../../componets/jotto/Input';
 
-const setUp = (success=false,secrectWord = 'party') => {
-    return (shallow(<Input success= {success} secrectWord={secrectWord} />));
+const setUp = (success=false,secretWord = 'party') => {
+    return (shallow(<Input success= {success} secretWord={secretWord} />));
 }
 
 describe('render',()=>{
@@ -52,7 +52,7 @@ describe('render',()=>{
 
 
 test('does not throw warning with expected props', () => {
-    checkProp(Input, { secrectWord: 'party' });
+    checkProp(Input, { secretWord: 'party' });
 })
 
 describe('state controlled input Field', () => {
