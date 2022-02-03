@@ -1,8 +1,15 @@
 import { shallow } from 'enzyme';
+import Jotto from '../../../componets/jotto/Jotto';
+import { findByTestAttr } from '../../tesrUtilis';
+
+const setUp = () => {
+    return shallow(<Jotto />);
+  
+  }
 
 
-describe("App componenet test case", () => {
-    test("Component is mount",()=>{
-
+    test("render without error",()=>{
+        const wrapper =setUp();
+        const appComponent =findByTestAttr(wrapper,"[data-test='component-app']");
+        expect(appComponent).toHaveLength(1);
     });
-});

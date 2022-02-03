@@ -9,7 +9,7 @@ const gussedWords = [
 
 ];
 export default function Jotto() {
-  return (<div className='container'>
+  return (<div className='container' data-test="component-app">
     <h1>Jotto</h1>
     <Congrats  sucess={true} />
     <GuessedWord gussedWords={gussedWords} />
