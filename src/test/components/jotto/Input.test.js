@@ -3,17 +3,53 @@ import { shallow } from 'enzyme';
 import { findByTestAttr, checkProp } from '../../tesrUtilis';
 import Input from '../../../componets/jotto/Input';
 
-const setUp = (secrectWord = 'party') => {
-    return (shallow(<Input secrectWord={secrectWord} />));
+const setUp = (success=false,secrectWord = 'party') => {
+    return (shallow(<Input success= {success} secrectWord={secrectWord} />));
 }
 
+describe('render',()=>{
+    describe('sucess is true',()=>{
+        let wrapper;
+        beforeEach(()=>{
+            wrapper=setUp(true);
+        })
+        test('render without error', () => {
+            const wrapper = setUp({ gussedWords: [] });
+            const component = findByTestAttr(wrapper, "[data-test='component-input']");
+            expect(component.length).toBe(1);
+        
+        });
+        test('Input box does not shoe',()=>{
+            const inputBox=findByTestAttr(wrapper, "[data-test='input-box']");
+            expect(inputBox.exists()).toBe(false);
+        })
+        test('submit button does not shoe ',()=>{
+            const submitButton =findByTestAttr(wrapper,"[data-test='submit-button']");
+            expect(submitButton.exists()).toBe(false);
+        })
+    });
+    describe('sucess is false',()=>{
+        let wrapper;
+        beforeEach(()=>{
+            wrapper=setUp(false);
+        })
+        test('render without error', () => {
+            const wrapper = setUp({ gussedWords: [] });
+            const component = findByTestAttr(wrapper, "[data-test='component-input']");
+            expect(component.length).toBe(1);
+        
+        });
+        test('Input box  show',()=>{
+            const inputBox=findByTestAttr(wrapper, "[data-test='input-box']");
+            expect(inputBox.exists()).toBe(true);
+        })
+        test('submit button show',()=>{
+            const submitButton =findByTestAttr(wrapper,"[data-test='submit-button']");
+            expect(submitButton.exists()).toBe(true);
+        })
+    })
+})
 
-test('render without error', () => {
-    const wrapper = setUp({ gussedWords: [] });
-    const component = findByTestAttr(wrapper, "[data-test='component-input']");
-    expect(component.length).toBe(1);
-
-});
 
 test('does not throw warning with expected props', () => {
     checkProp(Input, { secrectWord: 'party' });
