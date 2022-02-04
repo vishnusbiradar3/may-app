@@ -1,5 +1,12 @@
 import moxios from 'moxios';
-import { getScretWord } from '../../../../componets/jotto/actions';
+import { getScretWord, correctGuess, actionType } from '../../../../componets/jotto/actions';
+describe('correctGuess', () => {
+    test('return an action with type `CORRECT_GUSES', () => {
+        const action = correctGuess();
+        expect(action).toStrictEqual({type: actionType.CORRECT_GUESS});
+    });
+
+});
 
 
 describe('getDecretWord', () => {
