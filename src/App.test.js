@@ -1,12 +1,15 @@
 import App from './App';
 import { shallow,mount } from 'enzyme';
+import { Provider } from 'react-redux';
 //activete global mock to make sure getScretWord dosn`t make network call
 jest.mock('./componets/jotto/actions');
 // jest.mock('./actions');
 import { getScretWord as mockGetScretWord } from './componets/jotto/actions';
+import { storeFactory } from './test/tesrUtilis';
 const setUp = () => {
   // return shallow(<App />);
-  return mount(<App />);
+  const store = storeFactory()
+  return mount(<Provider store={store} ><App /></Provider>);
 
 }
 

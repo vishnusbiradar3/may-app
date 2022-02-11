@@ -1,9 +1,11 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useSelector  } from 'react-redux';
 
-export default function Input({ success, secrectWord }) {
+export default function Input({ secrectWord }) {
     const [currentGuess, setCurrentGuess] = React.useState("");
+    const success =  useSelector(state=>state.success)
 
     if(success){
         return(<div data-test="component-input" />)
